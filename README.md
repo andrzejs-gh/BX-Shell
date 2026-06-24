@@ -80,7 +80,7 @@ Registered functions live in the [function table](#function-table) (see global v
 
 ### ** Input length, UTF-8 handling and echo modes **
 
-Default input max length is set to 255 bytes (see [here](#input-length)). 
+The default maximum input length for a single command is 255 bytes (see [here](#input-length)). 
 By default, the allowed UTF-8 character set is restricted to ASCII and almost all 2-byte characters (see [here](#utf-8-sanitization)). You can lift that restriction with `restr [on | off]` command (see details [here](#-restr)), though correct input handling and shell stability is not guaranteed in unrestricted mode.
 
 The command line has 3 possible echo modes, which you can change between via `echom [-e | -m | -s]` command (see [here](#-echom)):
