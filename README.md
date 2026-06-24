@@ -181,7 +181,7 @@ int input_line_test(int argc, char** argv)
     - 0 (test finished)
     - -2 (test aborted)
     
-An input line object (see [here](#command-line-and-input_line-object)) test. Tests all possible echo modes: ECHO, MASK and SUPPRESS. Can be aborted at any moment via CTRL+C combination.
+`input_line` object (see [here](#command-line-and-input_line-object)) test. Tests all possible echo modes: ECHO, MASK and SUPPRESS. Can be aborted at any moment via CTRL+C combination.
 
 <p align="right">BACK TO 
 <a href="#built-in-commands">Built-in commands</a>
