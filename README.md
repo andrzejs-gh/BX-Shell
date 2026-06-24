@@ -420,11 +420,11 @@ in `/main/input_line.c` and implement a different arrow key logic.
 ## Input length
 
 The default maximum input length for a single command is 255 bytes.
-It is defined in `/main/CONSTANTS.h` under the macro 
+It is defined in `/main/CONSTANTS.h` under the macro: 
 ```c
 #define CMD_LINE_SIZE
 ```
-and can be set smaller but not larger, because setting a value above 255 (or below 0) would result in `uint8_t` type overflow (or underflow), aswell as program's undefined behaviour. The value is checked when the shell boots and if it isn't in the range (0, 255], shell start is aborted.
+The value can be set to anything in the range `(0, 255]` but not beyond, because setting a value above 255 (or below 0) would result in `uint8_t` type overflow (or underflow), aswell as program's undefined behaviour. The value is checked when the shell boots and if it isn't in the range `(0, 255]`, shell start is aborted.
 
 <p align="right">BACK TO 
 <a href="#table-of-contents">Table of contents</a>
