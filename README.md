@@ -55,7 +55,7 @@ The command line is horizontaly scrolled once the input exceeds the terminal wid
 
 ### ** Command registration and argument parsing **
 
-You can register commands (more datailed description [here](#command-registration)) in 
+You can register commands (more detailed description [here](#command-registration)) in 
 
 `/main/FUNCTIONS/_FUNCTION_REG.h`
 
