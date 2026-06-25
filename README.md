@@ -59,7 +59,7 @@ You can register commands (more detailed description [here](#command-registratio
 
 `/main/FUNCTIONS/_FUNCTION_REG.h`
 
-by adding the entry 
+by adding an entry 
 
 `{"command_name", function_name}`
 
