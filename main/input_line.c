@@ -129,7 +129,7 @@ static uint16_t get_current_column(void)
 
     char* begin = strchr((char*)buffer, ';');
     
-    if (!begin)
+    if (!begin || buffer[i] != 'R')
 		return 0;
 
 	char chr = *(++begin);
