@@ -128,43 +128,16 @@ static uint16_t get_current_column(void)
     }
 
     char* begin = strchr((char*)buffer, ';');
-    char* end = strchr((char*)buffer, 'R');
     
-    if (!begin || !end)
-        return 0;
+    if (!begin)
+		return 0;
 
-    for (uint8_t factor = 1; factor <= 100; factor *= 10)
-    {
-        char chr = *(--end);
-        if (chr == ';')
-            break;
-        if (chr < '0' || chr > '9')
-            return 0;
-
-        switch (chr)
-        {
-            case '0':
-                break;
-            case '1':
-                current_column += 1*factor; break;
-            case '2':
-                current_column += 2*factor; break;
-            case '3':
-                current_column += 3*factor; break;
-            case '4':
-                current_column += 4*factor; break;
-            case '5':
-                current_column += 5*factor; break;
-            case '6':
-                current_column += 6*factor; break;
-            case '7':
-                current_column += 7*factor; break;
-            case '8':
-                current_column += 8*factor; break;
-            case '9':
-                current_column += 9*factor; break;
-        }
-    }
+	char chr = *(++begin);
+	while ( chr >= '0' && chr <= '9' )
+	{
+		current_column = current_column * 10 + (chr - '0');
+		chr = *(++begin);
+	}	
 
     return current_column;
 }
