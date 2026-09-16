@@ -19,7 +19,7 @@ input_line new_input_line(uint8_t buffer_size, char echo_mode)
 	if (!buffer_size || (echo_mode != ECHO && echo_mode != MASK && echo_mode != SUPPRESS))
 		return INVALID_INPUT_LINE;
 	
-	cont buffer = cont_new(buffer_size, 1);
+	cont buffer = cont_NEW(uint8_t, buffer_size);
 	if (!buffer.addr) // initialization failed, INVALID_CONT returned
 		return INVALID_INPUT_LINE;
 	
@@ -241,7 +241,7 @@ static void on_backspace_pressed(input_line* inpl)
 	uint8_t initial_position = cursor;
 	cursor -= bytes_to_be_deleted;
 	
-	cont_cut(buffer, cursor, bytes_to_be_deleted);
+	cont_remove_range(buffer, cursor, bytes_to_be_deleted);
 	inpl->cursor = cursor;
 	
 	if (inpl->echo_mode == SUPPRESS)
@@ -305,7 +305,7 @@ static void on_up_arrow_pressed(input_line* inpl)
 	
 	if (buffer->count)
 		cont_clear(buffer);
- 	else if (!inpl->first_column)
+	else if (!inpl->first_column)
 		inpl->first_column = get_current_column();
 	
 	cont_append(buffer, hist_entry_ptr, hist_entry_len);

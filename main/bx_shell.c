@@ -69,7 +69,7 @@ void bx_shell(void)
 	
 	register_commands();
 	
-	cont argv_cont = cont_new(10, sizeof(char*));
+	cont argv_cont = cont_NEW(char*, 10);
 	
 	cmd_line = new_input_line(CMD_LINE_SIZE, ECHO);
 	
